@@ -7,12 +7,12 @@ CDDBEE
 CXXB F
 C GHHF
   G IF
-JJJ I 
+JJJ I
 '''
 
 def create_state(raw_string: str):
     state = raw_string.split('\n')
-    state = tuple([row for row in state if row])
+    state = tuple([row.ljust(6) for row in state if row.strip()])
     lengths = list(set(map(len, state)))
     if len(state) != 6 or lengths != [6]:
         raise Exception(f'''invalid state. state should be something like: {EXAMPLE}''')
